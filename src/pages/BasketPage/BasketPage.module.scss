@@ -1,0 +1,45 @@
+.basketPage {
+	&Inner {
+		border-bottom: 1px solid #94b2e0;
+	}
+
+	&Details {
+		margin-bottom: 25px;
+		div {
+			display: flex;
+			justify-content: flex-end;
+			gap: 30px;
+			margin-top: 10px;
+			margin-bottom: 30px;
+
+			&:nth-child(2) {
+				span {
+					color: #ff785b;
+				}
+
+				input {
+					width: 75px;
+					border-radius: 2px;
+					border: 1px solid #ff785b;
+					background: #fff;
+					padding: 5px;
+
+					&::placeholder {
+						color: #c3c2b8;
+						font-size: 13px;
+					}
+				}
+			}
+
+			&:last-child {
+				border-radius: 0px 0px 6px 6px;
+				background: #ff785b;
+				padding: 10px 25px;
+				margin: 0 -25px;
+				span {
+					color: #fff;
+				}
+			}
+		}
+	}
+}

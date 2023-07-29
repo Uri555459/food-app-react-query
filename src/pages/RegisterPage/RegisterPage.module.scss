@@ -1,0 +1,42 @@
+.registerPage {
+	text-align: center;
+	min-height: 100vh;
+	background: var(--accent-bg);
+	padding: 50px 25px 0;
+	position: relative;
+	overflow: hidden;
+
+	&Logo {
+		margin-bottom: 50px;
+	}
+	&PageButton {
+	}
+
+	&SignInButton {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		left: 50%;
+		bottom: -26px;
+		transform: translateX(-50%);
+		padding-bottom: 35px;
+
+		svg {
+			margin-bottom: -8px;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	span {
+		color: #000;
+		display: block;
+		margin: 35px 0;
+	}
+
+	button {
+		color: #fff;
+	}
+}

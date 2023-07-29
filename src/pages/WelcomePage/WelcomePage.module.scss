@@ -1,0 +1,24 @@
+.welcomePage {
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+	min-height: 100vh;
+	text-align: center;
+	background: var(--welcome-bg);
+	padding: 80px 25px;
+
+	&Inner {
+		margin-top: auto;
+	}
+
+	&Title {
+		margin-bottom: 10px;
+	}
+}
+
+.link {
+	display: block;
+	width: 227px;
+	background-color: #fff;
+	margin: 34px auto 0;
+}

@@ -1,0 +1,45 @@
+.profilePage {
+	&ImageWrap {
+		width: 185px;
+		height: 185px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin: 0 auto 15px;
+	}
+}
+
+.title {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.input {
+	display: block;
+	width: 100%;
+	padding: 14px 30px;
+	border: 1px solid transparent;
+	border-radius: 33px;
+	background-color: #fff;
+
+	&Wrap {
+		position: relative;
+		margin-bottom: 35px;
+
+		.error {
+			position: absolute;
+			left: 30px;
+			bottom: -21px;
+			margin: 0;
+			color: #f44336;
+		}
+	}
+
+	&::placeholder {
+		font-size: 15px;
+		color: rgba(133, 140, 131, 0.9);
+	}
+
+	&:focus {
+		border: 1px solid var(--accent-color);
+	}
+}

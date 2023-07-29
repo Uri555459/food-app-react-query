@@ -1,0 +1,8 @@
+export { WelcomePageAsync } from './WelcomePage/WelcomePage.async'
+export { LoginPageAsync } from './LoginPage/LoginPage.async'
+export { RegisterPageAsync } from './RegisterPage/RegisterPage.async'
+export { CategoriesPageAsync } from './CategoriesPage/CategoriesPage.async'
+export { CategoryPageAsync } from './CategoryPage/CategoryPage.async'
+export { BasketPageAsync } from './BasketPage/BasketPage.async'
+export { ProfilePageAsync } from './ProfilePage/ProfilePage.async'
+export { FavoritesPageAsync } from './FavoritesPage/FavoritesPage.async'

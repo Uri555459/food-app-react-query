@@ -1,0 +1,34 @@
+.categoryCard {
+	display: block;
+	padding-bottom: 25px;
+}
+.categoryCardImageWrap {
+	border-radius: 26px;
+	overflow: hidden;
+	margin-bottom: 10px;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+}
+
+.categoryCardTitle {
+	color: #000;
+	margin-bottom: 10px;
+}
+
+.categoryRating {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	span {
+		&:nth-child(2) {
+			color: var(--accent-color);
+		}
+		&:nth-child(3) {
+			color: #746969;
+		}
+	}
+}

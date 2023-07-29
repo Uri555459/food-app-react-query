@@ -1,0 +1,24 @@
+.layoutDetails {
+	padding: 40px 25px 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background: var(--accent-bg);
+}
+
+.close {
+	width: 20px;
+	height: 20px;
+	margin-bottom: 40px;
+}
+
+.title {
+}
+
+.bottomNavWrapper {
+	margin-top: auto;
+}
+
+.bottomNavDivider {
+	margin: 0 !important;
+}

@@ -1,0 +1,95 @@
+@import './assets/scss/reset';
+
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	--accent-color: #ff785b;
+
+	--welcome-bg: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0) 0%,
+		#040000 100%
+	);
+
+	--accent-bg: linear-gradient(180deg, #fbedea 0%, #fffdfd 100%);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 320px;
+	font-family: 'Lato', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	color: #000;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100vh;
+	max-width: 375px;
+	margin: 0 auto;
+	background-color: var(--accent-color);
+	overflow-x: hidden;
+	position: relative;
+}
+
+.flexCol {
+	display: flex;
+	flex-direction: column;
+}
+
+.inner {
+	padding: 25px 25px;
+	background: var(--accent-bg);
+	border-radius: 26px 26px 0 0;
+	flex-grow: 1;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: 100%;
+}
+
+form,
+input,
+button,
+select,
+textarea {
+	font-family: 'Lato', sans-serif;
+	outline: none;
+	resize: none;
+}
+
+button {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	padding: 0;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+.buttonWhite {
+	background-color: #fff;
+}
+
+.select {
+	z-index: 1000;
+}
+
+.headerTransparent {
+	background-color: transparent;
+}
