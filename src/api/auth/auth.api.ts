@@ -8,8 +8,14 @@ export const authApi = {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ ...data }),
+			body: JSON.stringify({
+				...data,
+				address: '',
+				basketProductsIds: [],
+				favoriteProductIds: [],
+			}),
 		})
+
 		return await res.json()
 	},
 

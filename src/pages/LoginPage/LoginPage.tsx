@@ -14,19 +14,18 @@ import {
 	Typography,
 } from '../../components'
 
-import { addUser, selectUser } from '../../redux/user/userSlice'
-
-import { useAppDispatch, useAppSelector } from '../../hooks/store.hooks'
+import { getLocalStorage, setLocalStorage } from '../../utils/localStorage'
 import { authApi } from '../../api/auth/auth.api'
 import { MESSAGES } from '../../constants/messages.constants'
+import { LOCAL_STORAGE } from '../../constants/localStorage.constants'
 
 import styles from './LoginPage.module.scss'
 
 const LoginPage: FC = () => {
 	const { t } = useTranslation('auth')
-	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
-	const { accessToken } = useAppSelector(selectUser)
+
+	const accessToken = getLocalStorage(LOCAL_STORAGE.TOKEN_KEY)
 
 	useEffect(() => {
 		if (accessToken) return navigate('/categories')
@@ -42,8 +41,9 @@ const LoginPage: FC = () => {
 		const res = await authApi.login(data)
 		if (typeof res === 'string') return toast.error(res)
 		toast.success(`User: ${res.user.fullName}, you have successfully logged on`)
-		const { user, accessToken } = res
-		dispatch(addUser({ ...user, accessToken }))
+
+		setLocalStorage(LOCAL_STORAGE.TOKEN_KEY, JSON.stringify(res.accessToken))
+
 		navigate('/categories')
 	}
 

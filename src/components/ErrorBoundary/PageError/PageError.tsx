@@ -1,6 +1,8 @@
 import { FC } from 'react'
 
-import { Button } from '../..'
+import { Button, Typography } from '../..'
+
+import styles from './PageError.module.scss'
 
 interface PageErrorProps {
 	className?: string
@@ -12,8 +14,10 @@ export const PageError: FC<PageErrorProps> = () => {
 	}
 
 	return (
-		<div>
-			<p>Произошла непредвиденная ошибка</p>
+		<div className={styles.pageError}>
+			<Typography tag='h1' size='lg'>
+				Произошла непредвиденная ошибка
+			</Typography>
 			<Button onClick={reloadPage}>Обновить страницу</Button>
 		</div>
 	)

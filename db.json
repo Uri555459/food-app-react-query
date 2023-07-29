@@ -1,122 +1,132 @@
 {
-	"users": [],
-	"products": [
-		{
-			"id": 1,
-			"title": "Clams Casino Stuffed Pasta Shells",
-			"description": "Clams Casino Stuffed Pasta Shells are a twist on one of my childhood appetizer favorites - clams casino. Bacon, clams, peppers, cream, and cheese are stuffed into pasta shells for a truly incredible dinner.",
-			"imageUrl": "/images/categories/category-1/1.webp",
-			"price": 10,
-			"peoples": 8,
-			"rating": 5,
-			"count": 1,
-			"added": false,
-			"isFavorites": false,
-			"categoryId": 1
-		},
-		{
-			"id": 2,
-			"title": "Peri Peri Chicken",
-			"description": "This peri peri chicken is made with my take on African peri peri sauce using fresh and dried chiles. The marinade is incredibly flavorful and gives the chicken a beautiful color as well.",
-			"imageUrl": "/images/categories/category-1/2.webp",
-			"price": 12,
-			"peoples": 8,
-			"rating": 5,
-			"categoryId": 1
-		},
-		{
-			"id": 3,
-			"title": "Miso Beef Noodles",
-			"description": "This extremely flavorful, savory noodle dish is inspired by any and all regions’ noodle dishes I’ve ever had along with dishes featuring miso.",
-			"imageUrl": "/images/categories/category-1/3.webp",
-			"price": 9,
-			"peoples": 4,
-			"rating": 3.3,
-			"categoryId": 1
-		},
-		{
-			"id": 4,
-			"title": "Southeast Asian Style Chicken Rice",
-			"description": "I've mixed elements of Vietnamese, Thai, Indonesian and other Asian cuisines to make a delicious chicken and rice dish topped with a fresh herb salad.",
-			"imageUrl": "/images/categories/category-1/4.webp",
-			"price": 5,
-			"peoples": 25,
-			"rating": 4.3,
-			"categoryId": 1
-		},
-		{
-			"id": 5,
-			"title": "How to Make Pie: Nicole's Best Tips",
-			"description": "Demystify the pie! Nicole McLaughlin, aka Nicole Mcmom, shares her best tips for making pies, from crusts and fillings to baking and serving.",
-			"imageUrl": "/images/categories/category-2/1.webp",
-			"price": 14.5,
-			"peoples": 25,
-			"rating": 4.3,
-			"categoryId": 2
-		},
-		{
-			"id": 6,
-			"title": "Smart Tips and Winning Recipes for Successful Bake Sales",
-			"description": "Bake sales are tried-and-false fundraisers that rely on the irresistible appeal of home-baked treats to bring in the bucks for your group or cause. Of course, they also rely on good planning and organization. To ensure your event is a sweet success, we have some no-fail bake sale ideas -- tips for pulling together a bake sale and, of course, crowd-pleasing recipe suggestions -- the bake sale best sellers!",
-			"imageUrl": "/images/categories/category-2/2.webp",
-			"price": 11.99,
-			"peoples": 33,
-			"rating": 3.9,
-			"categoryId": 2
-		},
-		{
-			"id": 7,
-			"title": "How to Make Homemade Cinnamon Rolls From Scratch",
-			"description": "Your kitchen is going to smell amazing.",
-			"imageUrl": "/images/categories/category-2/3.webp",
-			"price": 4.7,
-			"peoples": 42,
-			"rating": 3.9,
-			"categoryId": 2
-		},
-		{
-			"id": 8,
-			"title": "How to Make Homemade Cinnamon Rolls From Scratch",
-			"description": "Your kitchen is going to smell amazing.",
-			"imageUrl": "/images/categories/category-2/4.webp",
-			"price": 10,
-			"peoples": 42,
-			"rating": 3.9,
-			"categoryId": 2
-		}
-	],
-	"categories": [
-		{
-			"id": 1,
-			"title": "Main Dishes",
-			"imageUrl": "/images/categories/1.webp",
-			"peoples": 3,
-			"rating": 4.9,
-			"category": 1
-		},
-		{
-			"id": 2,
-			"title": "Best Sellers",
-			"imageUrl": "/images/categories/2.webp",
-			"peoples": 105,
-			"rating": 4.8,
-			"category": 2
-		},
-		{
-			"id": 3,
-			"title": "Discounted Offers",
-			"imageUrl": "/images/categories/3.webp",
-			"peoples": 500,
-			"rating": 4.6,
-			"category": 3
-		},
-		{
-			"id": 4,
-			"title": "Meal Plans",
-			"imageUrl": "/images/categories/4.webp",
-			"peoples": 203,
-			"rating": 5,
-			"category": 4
-		}
-	]
+  "users": [
+    {
+      "email": "test@test.ru",
+      "password": "$2a$10$RopNF85hfHS0uUQ6Q.FY9exff90ibKHZYfUGjNEoRoCp.KnaoRbgW",
+      "fullName": "Uri Test",
+      "address": "",
+      "basketProductsIds": [],
+      "favoriteProductIds": [],
+      "id": 1
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Clams Casino Stuffed Pasta Shells",
+      "description": "Clams Casino Stuffed Pasta Shells are a twist on one of my childhood appetizer favorites - clams casino. Bacon, clams, peppers, cream, and cheese are stuffed into pasta shells for a truly incredible dinner.",
+      "imageUrl": "/images/categories/category-1/1.webp",
+      "price": 10,
+      "peoples": 8,
+      "rating": 5,
+      "count": 1,
+      "added": false,
+      "isFavorites": false,
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "title": "Peri Peri Chicken",
+      "description": "This peri peri chicken is made with my take on African peri peri sauce using fresh and dried chiles. The marinade is incredibly flavorful and gives the chicken a beautiful color as well.",
+      "imageUrl": "/images/categories/category-1/2.webp",
+      "price": 12,
+      "peoples": 8,
+      "rating": 5,
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "title": "Miso Beef Noodles",
+      "description": "This extremely flavorful, savory noodle dish is inspired by any and all regions’ noodle dishes I’ve ever had along with dishes featuring miso.",
+      "imageUrl": "/images/categories/category-1/3.webp",
+      "price": 9,
+      "peoples": 4,
+      "rating": 3.3,
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "title": "Southeast Asian Style Chicken Rice",
+      "description": "I've mixed elements of Vietnamese, Thai, Indonesian and other Asian cuisines to make a delicious chicken and rice dish topped with a fresh herb salad.",
+      "imageUrl": "/images/categories/category-1/4.webp",
+      "price": 5,
+      "peoples": 25,
+      "rating": 4.3,
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "title": "How to Make Pie: Nicole's Best Tips",
+      "description": "Demystify the pie! Nicole McLaughlin, aka Nicole Mcmom, shares her best tips for making pies, from crusts and fillings to baking and serving.",
+      "imageUrl": "/images/categories/category-2/1.webp",
+      "price": 14.5,
+      "peoples": 25,
+      "rating": 4.3,
+      "categoryId": 2
+    },
+    {
+      "id": 6,
+      "title": "Smart Tips and Winning Recipes for Successful Bake Sales",
+      "description": "Bake sales are tried-and-false fundraisers that rely on the irresistible appeal of home-baked treats to bring in the bucks for your group or cause. Of course, they also rely on good planning and organization. To ensure your event is a sweet success, we have some no-fail bake sale ideas -- tips for pulling together a bake sale and, of course, crowd-pleasing recipe suggestions -- the bake sale best sellers!",
+      "imageUrl": "/images/categories/category-2/2.webp",
+      "price": 11.99,
+      "peoples": 33,
+      "rating": 3.9,
+      "categoryId": 2
+    },
+    {
+      "id": 7,
+      "title": "How to Make Homemade Cinnamon Rolls From Scratch",
+      "description": "Your kitchen is going to smell amazing.",
+      "imageUrl": "/images/categories/category-2/3.webp",
+      "price": 4.7,
+      "peoples": 42,
+      "rating": 3.9,
+      "categoryId": 2
+    },
+    {
+      "id": 8,
+      "title": "How to Make Homemade Cinnamon Rolls From Scratch",
+      "description": "Your kitchen is going to smell amazing.",
+      "imageUrl": "/images/categories/category-2/4.webp",
+      "price": 10,
+      "peoples": 42,
+      "rating": 3.9,
+      "categoryId": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Main Dishes",
+      "imageUrl": "/images/categories/1.webp",
+      "peoples": 3,
+      "rating": 4.9,
+      "category": 1
+    },
+    {
+      "id": 2,
+      "title": "Best Sellers",
+      "imageUrl": "/images/categories/2.webp",
+      "peoples": 105,
+      "rating": 4.8,
+      "category": 2
+    },
+    {
+      "id": 3,
+      "title": "Discounted Offers",
+      "imageUrl": "/images/categories/3.webp",
+      "peoples": 500,
+      "rating": 4.6,
+      "category": 3
+    },
+    {
+      "id": 4,
+      "title": "Meal Plans",
+      "imageUrl": "/images/categories/4.webp",
+      "peoples": 203,
+      "rating": 5,
+      "category": 4
+    }
+  ]
 }

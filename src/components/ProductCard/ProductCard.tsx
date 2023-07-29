@@ -15,7 +15,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
 
 	const formatTitle = product.title.slice(0, 20) + '...'
 
-	const addToBasketHandler = () => {
+	const addToBasketHandler = async () => {
 		setAdded(true)
 	}
 

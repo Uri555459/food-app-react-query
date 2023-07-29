@@ -14,19 +14,18 @@ import {
 	Typography,
 } from '../../components'
 
-import { addUser, selectUser } from '../../redux/user/userSlice'
-import { useAppDispatch, useAppSelector } from '../../hooks/store.hooks'
-
+import { getLocalStorage, setLocalStorage } from '../../utils/localStorage'
 import { authApi } from '../../api/auth/auth.api'
 import { MESSAGES } from '../../constants/messages.constants'
+import { LOCAL_STORAGE } from '../../constants/localStorage.constants'
 
 import styles from './RegisterPage.module.scss'
 
 const RegisterPage: FC = () => {
 	const { t } = useTranslation('auth')
-	const dispatch = useAppDispatch()
-	const { accessToken } = useAppSelector(selectUser)
 	const navigate = useNavigate()
+
+	const accessToken = getLocalStorage(LOCAL_STORAGE.TOKEN_KEY)
 
 	useEffect(() => {
 		if (accessToken) return navigate('/categories')
@@ -44,8 +43,10 @@ const RegisterPage: FC = () => {
 		toast.success(
 			`User: ${res.user.fullName}, has been successfully established`
 		)
-		const { user, accessToken } = res
-		dispatch(addUser({ ...user, accessToken }))
+
+		setLocalStorage(LOCAL_STORAGE.TOKEN_KEY, JSON.stringify(res.accessToken))
+
+		navigate('/categories')
 	}
 
 	return (

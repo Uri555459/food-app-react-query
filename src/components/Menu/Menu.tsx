@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import cn from 'clsx'
 import { changeLanguage } from 'i18next'
 import { SlLogout } from 'react-icons/sl'
@@ -11,6 +11,9 @@ import { menuRoutes } from '../../routes/routes'
 
 import { Option } from '../Select/SelectItem/SelectItem'
 
+import { clearLocalStorage, getLocalStorage } from '../../utils/localStorage'
+import { LOCAL_STORAGE } from '../../constants/localStorage.constants'
+
 import styles from './Menu.module.scss'
 
 interface Props {
@@ -18,8 +21,8 @@ interface Props {
 }
 
 export const Menu: FC<Props> = ({ isShow }) => {
-	// FIXME: FIXED access token
-	const accessToken = true
+	const navigate = useNavigate()
+	const accessToken = getLocalStorage(LOCAL_STORAGE.TOKEN_KEY)
 
 	const [month, setMonthValue] = useState('')
 	const handleMonthSelect = (value: string) => {
@@ -36,7 +39,10 @@ export const Menu: FC<Props> = ({ isShow }) => {
 
 	const lng = (localStorage.getItem('i18nextLng') || 'en').toUpperCase()
 
-	const logoutHandler = () => {}
+	const logoutHandler = () => {
+		clearLocalStorage(LOCAL_STORAGE.TOKEN_KEY)
+		navigate('/welcome')
+	}
 
 	return (
 		<div
