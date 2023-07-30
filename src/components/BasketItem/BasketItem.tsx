@@ -5,16 +5,18 @@ import { Typography } from '..'
 
 import { IProduct } from '../../types/global.types'
 
+import { useBasketItem } from './useBasketItem'
+import { totalPriceProduct } from '../../utils/totalPriceProduct'
+
 import styles from './BasketItem.module.scss'
 
 interface Props {
 	product: IProduct
+	index: number
 }
 
-export const BasketItem: FC<Props> = ({ product }) => {
-	const totalPrice = product.price * product.count
-
-	const removeToBasketHandler = () => {}
+export const BasketItem: FC<Props> = ({ product, index }) => {
+	const { user, isSuccess, handleClick } = useBasketItem(product)
 
 	return (
 		<div className={styles.basketItem}>
@@ -28,15 +30,20 @@ export const BasketItem: FC<Props> = ({ product }) => {
 				<div className={styles.basketItemControls}>
 					<button>-</button>
 					<Typography tag='span' size='xs'>
-						{product.count}
+						{user?.basketProductsIds[index].count}
 					</Typography>
 					<button>+</button>
 				</div>
 				<div className={styles.basketItemPrice}>
 					<Typography tag='span' size='lg'>
-						${totalPrice}
+						$
+						{isSuccess &&
+							totalPriceProduct(
+								user!.basketProductsIds[index].count,
+								product.price
+							)}
 					</Typography>
-					<button onClick={removeToBasketHandler}>
+					<button onClick={handleClick}>
 						<IoClose size='1.5rem' color='#EF0B0B' />
 					</button>
 				</div>

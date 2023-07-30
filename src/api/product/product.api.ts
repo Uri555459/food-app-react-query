@@ -1,5 +1,5 @@
 import { API_CONSTANTS } from '../../constants/api.constants'
-import { ICategory, IProduct } from '../../types/global.types'
+import { IBasketItem, ICategory, IProduct } from '../../types/global.types'
 import { userApi } from '../user/user.api'
 
 export const productApi = {
@@ -22,18 +22,19 @@ export const productApi = {
 			console.log('User not found')
 		}
 
-		const candidate = user.basketProductsIds.find(
-			(id: number) => id === productId
-		)
+		const candidate = user.basketProductsIds.find(item => item.id === productId)
 
-		let newBasketProductsIds: number[] = []
+		let newBasketProductsIds: IBasketItem[] = []
 
 		if (candidate) {
 			newBasketProductsIds = user.basketProductsIds.filter(
-				(id: number) => id !== candidate
+				item => item !== candidate
 			)
 		} else {
-			newBasketProductsIds = [...user.basketProductsIds, productId]
+			newBasketProductsIds = [
+				...user.basketProductsIds,
+				{ id: productId, count: 1 },
+			]
 		}
 
 		await fetch(`${API_CONSTANTS.BASE_URL}/users/${userId}`, {

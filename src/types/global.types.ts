@@ -1,9 +1,14 @@
+export interface IBasketItem {
+	id: number
+	count: number
+}
+
 export interface IBaseUser {
 	id: number
 	email: string
 	fullName: string
 	address?: string
-	basketProductsIds: number[]
+	basketProductsIds: IBasketItem[]
 	favoriteProductIds: number[]
 }
 

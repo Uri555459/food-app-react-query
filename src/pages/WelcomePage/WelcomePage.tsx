@@ -1,14 +1,25 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaArrowRight } from 'react-icons/fa'
 
 import { Button, Header, Logo } from '../../components'
 import { Typography } from '../../components'
 
+import { useNavigate } from 'react-router-dom'
+import { getLocalStorage } from '../../utils/localStorage'
+import { LOCAL_STORAGE } from '../../constants/localStorage.constants'
+
 import styles from './WelcomePage.module.scss'
 
 const WelcomePage: FC = () => {
 	const { t } = useTranslation('welcome')
+	const navigate = useNavigate()
+
+	const accessToken = getLocalStorage(LOCAL_STORAGE.TOKEN_KEY)
+
+	useEffect(() => {
+		if (accessToken) return navigate('/categories')
+	}, [accessToken, navigate])
 
 	return (
 		<div className={styles.welcomePage}>

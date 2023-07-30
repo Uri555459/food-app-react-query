@@ -1,28 +1,37 @@
 import { FC } from 'react'
 
-import { BasketItem, LayoutDetails, Typography } from '../../components'
+import {
+	BasketItem,
+	LayoutDetails,
+	Spinner,
+	Typography,
+} from '../../components'
+
+import { useBasketPage } from './useBasketPage'
 
 import styles from './BasketPage.module.scss'
-import { IProduct } from '../../types/global.types'
 
 const BasketPage: FC = () => {
-	// FIXME: Fixed array products and total price
-	const products = [] as IProduct[]
-	const totalPrice = 0
+	const { products, isLoading, isSuccess } = useBasketPage()
+	const totalPrice = 1
+
+	if (isLoading) return <Spinner />
 
 	return (
 		<div className={styles.basketPage}>
 			<LayoutDetails
-				title={
-					products.length > 0 ? 'Your Shopping Cart' : 'Shopping Cart Empty'
-				}
+				title={products?.length ? 'Your Shopping Cart' : 'Shopping Cart Empty'}
 			>
-				{products.length > 0 && (
+				{isSuccess && (
 					<>
 						<div className={styles.basketPageInner}>
-							{products.length > 0 &&
-								products.map(product => (
-									<BasketItem key={product.id} product={product} />
+							{isSuccess &&
+								products?.map((product, index) => (
+									<BasketItem
+										key={product.id}
+										product={product}
+										index={index}
+									/>
 								))}
 						</div>
 						{totalPrice > 0 && (
