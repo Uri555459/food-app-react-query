@@ -12,5 +12,7 @@ module.exports = {
 		'react-refresh/only-export-components': 'warn',
 		'no-mixed-spaces-and-tabs': 0,
 		'@typescript-eslint/ban-ts-comment': 'off',
+		'no-unused-vars': 'off',
+		'@typescript-eslint/no-unused-vars': 'off',
 	},
 }

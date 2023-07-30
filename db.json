@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "test@test.ru",
-      "password": "$2a$10$RopNF85hfHS0uUQ6Q.FY9exff90ibKHZYfUGjNEoRoCp.KnaoRbgW",
+      "password": "$2a$10$ulvNtYpj7ic6ZsqUjwmt5OnLyfv3vpY0sujurvmod/jeGu08wpUim",
       "fullName": "Uri Test",
       "address": "",
       "basketProductsIds": [],
@@ -19,9 +19,6 @@
       "price": 10,
       "peoples": 8,
       "rating": 5,
-      "count": 1,
-      "added": false,
-      "isFavorites": false,
       "categoryId": 1
     },
     {

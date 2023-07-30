@@ -45,6 +45,7 @@ const RegisterPage: FC = () => {
 		)
 
 		setLocalStorage(LOCAL_STORAGE.TOKEN_KEY, JSON.stringify(res.accessToken))
+		setLocalStorage(LOCAL_STORAGE.USER_ID, JSON.stringify(res.user.id))
 
 		navigate('/categories')
 	}

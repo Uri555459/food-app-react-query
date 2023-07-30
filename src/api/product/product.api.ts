@@ -1,5 +1,6 @@
 import { API_CONSTANTS } from '../../constants/api.constants'
 import { ICategory, IProduct } from '../../types/global.types'
+import { userApi } from '../user/user.api'
 
 export const productApi = {
 	async getCategories(): Promise<ICategory[]> {
@@ -14,47 +15,69 @@ export const productApi = {
 		return await res.json()
 	},
 
-	async addedFlagToBasket(id: number) {
-		const res = await fetch(`${API_CONSTANTS.BASE_URL}/products/${id}`, {
+	async toggleToBasket(userId: number, productId: number) {
+		const user = await userApi.getUser(userId)
+
+		if (!user) {
+			console.log('User not found')
+		}
+
+		const candidate = user.basketProductsIds.find(
+			(id: number) => id === productId
+		)
+
+		let newBasketProductsIds: number[] = []
+
+		if (candidate) {
+			newBasketProductsIds = user.basketProductsIds.filter(
+				(id: number) => id !== candidate
+			)
+		} else {
+			newBasketProductsIds = [...user.basketProductsIds, productId]
+		}
+
+		await fetch(`${API_CONSTANTS.BASE_URL}/users/${userId}`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ added: true }),
+			body: JSON.stringify({
+				...user,
+				basketProductsIds: newBasketProductsIds,
+			}),
 		})
-		return await res.json()
 	},
 
-	async removeFlagToBasket(id: number) {
-		const res = await fetch(`${API_CONSTANTS.BASE_URL}/products/${id}`, {
-			method: 'PATCH',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ added: false }),
-		})
-		return await res.json()
-	},
+	async toggleToFavorites(userId: number, productId: number) {
+		const user = await userApi.getUser(userId)
 
-	async addedToFavorites(id: number) {
-		const res = await fetch(`${API_CONSTANTS.BASE_URL}/products/${id}`, {
-			method: 'PATCH',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ isFavorites: true }),
-		})
-		return await res.json()
-	},
+		if (!user) {
+			console.log('User not found')
+		}
 
-	async removeToFavorites(id: number) {
-		const res = await fetch(`${API_CONSTANTS.BASE_URL}/products/${id}`, {
+		const candidate = user.favoriteProductIds.find(
+			(id: number) => id === productId
+		)
+
+		let newFavoriteProductIds: number[] = []
+
+		if (candidate) {
+			newFavoriteProductIds = user.favoriteProductIds.filter(
+				(id: number) => id !== candidate
+			)
+		} else {
+			newFavoriteProductIds = [...user.favoriteProductIds, productId]
+		}
+
+		await fetch(`${API_CONSTANTS.BASE_URL}/users/${userId}`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ isFavorites: false }),
+			body: JSON.stringify({
+				...user,
+				favoriteProductIds: newFavoriteProductIds,
+			}),
 		})
-		return await res.json()
 	},
 }

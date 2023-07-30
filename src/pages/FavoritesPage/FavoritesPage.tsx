@@ -6,14 +6,18 @@ import {
 	PageInfo,
 	ProductCard,
 	ProductCardList,
+	Spinner,
+	Typography,
 } from '../../components'
 
+import { useFavoritesPage } from './useFavoritesPage'
+
 import styles from './FavoritesPage.module.scss'
-import { IProduct } from '../../types/global.types'
 
 const FavoritesPage: FC = () => {
-	// FIXME: Fixed favorites array
-	const favorites = [] as IProduct[]
+	const { favorites, isLoading } = useFavoritesPage()
+
+	if (isLoading) return <Spinner />
 
 	return (
 		<div className={styles.favoritesPage}>
@@ -23,11 +27,19 @@ const FavoritesPage: FC = () => {
 			/>
 			<div className={cn(styles.favoritesPageWrap, 'flexCol')}>
 				<div className='inner'>
+					{favorites?.length === 0 && (
+						<Typography
+							tag='h3'
+							size='lg'
+							className={styles.favoritesPageEmpty}
+						>
+							Wishlist is empty
+						</Typography>
+					)}
 					<ProductCardList>
-						{favorites.length > 0 &&
-							favorites.map(product => (
-								<ProductCard key={product.id} product={product} />
-							))}
+						{favorites?.map(product => (
+							<ProductCard key={product.id} product={product} />
+						))}
 					</ProductCardList>
 				</div>
 				<BottomNav />

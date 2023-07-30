@@ -43,6 +43,7 @@ const LoginPage: FC = () => {
 		toast.success(`User: ${res.user.fullName}, you have successfully logged on`)
 
 		setLocalStorage(LOCAL_STORAGE.TOKEN_KEY, JSON.stringify(res.accessToken))
+		setLocalStorage(LOCAL_STORAGE.USER_ID, JSON.stringify(res.user.id))
 
 		navigate('/categories')
 	}
