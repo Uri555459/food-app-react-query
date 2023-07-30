@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "test@test.ru",
-      "password": "$2a$10$ulvNtYpj7ic6ZsqUjwmt5OnLyfv3vpY0sujurvmod/jeGu08wpUim",
+      "password": "$2a$10$tgwnJVmtKVB4q.E3uVmQ6ervTrHOrgJeYUkAJmMBpSPL4sE9Wksay",
       "fullName": "Uri Test",
       "address": "",
       "basketProductsIds": [],
