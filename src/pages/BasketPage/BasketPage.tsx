@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
 import {
 	BasketItem,
@@ -7,13 +8,18 @@ import {
 	Typography,
 } from '../../components'
 
+import { productApi } from '../../api/product/product.api'
 import { useBasketPage } from './useBasketPage'
 
 import styles from './BasketPage.module.scss'
 
 const BasketPage: FC = () => {
 	const { products, isLoading, isSuccess } = useBasketPage()
-	const totalPrice = 1
+
+	const { data: totalPrice } = useQuery({
+		queryKey: ['basket', '1', '2'],
+		queryFn: () => productApi.getTotalPriceProducts(),
+	})
 
 	if (isLoading) return <Spinner />
 
@@ -26,15 +32,11 @@ const BasketPage: FC = () => {
 					<>
 						<div className={styles.basketPageInner}>
 							{isSuccess &&
-								products?.map((product, index) => (
-									<BasketItem
-										key={product.id}
-										product={product}
-										index={index}
-									/>
+								products?.map(product => (
+									<BasketItem key={product.id} product={product} />
 								))}
 						</div>
-						{totalPrice > 0 && (
+						{Number(totalPrice) > 0 && (
 							<div className={styles.basketPageDetails}>
 								<div>
 									<Typography tag='span' size='md'>

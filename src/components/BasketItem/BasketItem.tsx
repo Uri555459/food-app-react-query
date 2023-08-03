@@ -12,11 +12,15 @@ import styles from './BasketItem.module.scss'
 
 interface Props {
 	product: IProduct
-	index: number
 }
 
-export const BasketItem: FC<Props> = ({ product, index }) => {
-	const { user, isSuccess, handleClick } = useBasketItem(product)
+export const BasketItem: FC<Props> = ({ product }) => {
+	const { user, isSuccess, handleClick, handlePlus, handleMinus } =
+		useBasketItem(product)
+
+	const productCount = user?.basketProductsIds?.find(
+		item => product.id === item.id
+	)?.count
 
 	return (
 		<div className={styles.basketItem}>
@@ -28,20 +32,15 @@ export const BasketItem: FC<Props> = ({ product, index }) => {
 					<img src={product.imageUrl} alt={product.title} />
 				</div>
 				<div className={styles.basketItemControls}>
-					<button>-</button>
+					<button onClick={handleMinus}>-</button>
 					<Typography tag='span' size='xs'>
-						{user?.basketProductsIds[index].count}
+						{isSuccess && productCount}
 					</Typography>
-					<button>+</button>
+					<button onClick={handlePlus}>+</button>
 				</div>
 				<div className={styles.basketItemPrice}>
 					<Typography tag='span' size='lg'>
-						$
-						{isSuccess &&
-							totalPriceProduct(
-								user!.basketProductsIds[index].count,
-								product.price
-							)}
+						${isSuccess && totalPriceProduct(productCount || 1, product.price)}
 					</Typography>
 					<button onClick={handleClick}>
 						<IoClose size='1.5rem' color='#EF0B0B' />

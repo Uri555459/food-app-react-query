@@ -17,16 +17,39 @@ export const useBasketItem = (product: IProduct) => {
 		queryFn: () => userApi.getUser(userId),
 	})
 
-	const handleClick = () => {
-		mutate()
+	const handlePlus = () => {
+		plusMutate()
 	}
 
-	const { mutate } = useMutation({
-		mutationFn: () => productApi.toggleToBasket(userId, product.id),
+	const { mutate: plusMutate } = useMutation({
+		mutationFn: () => productApi.handlePlus(userId, product.id),
+		onSuccess: () => {
+			client.invalidateQueries({ queryKey: ['basket'] })
+		},
+	})
+
+	const handleMinus = () => {
+		minusMutate()
+	}
+
+	const { mutate: minusMutate } = useMutation({
+		mutationFn: () => productApi.handleMinus(userId, product.id),
+		onSuccess: () => {
+			client.invalidateQueries({ queryKey: ['basket'] })
+		},
+	})
+
+	const handleClick = () => {
+		handleClickMutate()
+	}
+
+	const { mutate: handleClickMutate } = useMutation({
+		mutationFn: () =>
+			productApi.toggleToBasket(userId, product.id, product.price),
 		onSuccess: () => {
 			client.invalidateQueries({ queryKey: ['basket', '1'] })
 		},
 	})
 
-	return { user, isSuccess, handleClick }
+	return { user, isSuccess, handleClick, handlePlus, handleMinus }
 }

@@ -41,6 +41,7 @@ export const Menu: FC<Props> = ({ isShow }) => {
 
 	const logoutHandler = () => {
 		clearLocalStorage(LOCAL_STORAGE.TOKEN_KEY)
+		clearLocalStorage(LOCAL_STORAGE.USER_ID)
 		navigate('/welcome')
 	}
 

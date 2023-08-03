@@ -9,7 +9,7 @@
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"server": "json-server-auth --watch db.json",
-		"start:server": "concurrently \"yarn dev\" \"yarn server\""
+		"start:server": "concurrently \"yarn server\" \"yarn dev\""
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^4.32.0",

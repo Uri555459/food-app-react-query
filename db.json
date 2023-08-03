@@ -2,12 +2,32 @@
   "users": [
     {
       "email": "test@test.ru",
-      "password": "$2a$10$YBOxH7ztTCcRfXoQFQgWOuHWcREoWjIAqKm14089Ft/4XsZwgPMh.",
-      "fullName": "Uri Uri",
+      "password": "$2a$10$eMoLijgGl9zdrdooEt4UkOeU757AjxIpKApWjWRYwub5qMdq5iOrq",
+      "fullName": "test@test.ru",
       "address": "",
       "basketProductsIds": [],
-      "favoriteProductIds": [],
+      "favoriteProductIds": [
+        3
+      ],
       "id": 1
+    },
+    {
+      "email": "test2@test.ru",
+      "password": "$2a$10$A5YI2spvMdOOwC4TdlLFA.7wPsiHmo3FJZjOKkC.ytfbgwG/inDsK",
+      "fullName": "test2@test.ru",
+      "address": "",
+      "basketProductsIds": [
+        {
+          "id": 1,
+          "count": 1
+        },
+        {
+          "id": 2,
+          "count": 1
+        }
+      ],
+      "favoriteProductIds": [],
+      "id": 2
     }
   ],
   "products": [

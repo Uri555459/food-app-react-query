@@ -27,6 +27,7 @@ export const authApi = {
 			},
 			body: JSON.stringify(data),
 		})
+
 		return await res.json()
 	},
 }

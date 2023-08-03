@@ -24,7 +24,8 @@ export const useProductCard = (product: IProduct) => {
 	}
 
 	const { mutate } = useMutation({
-		mutationFn: () => productApi.toggleToBasket(userId, product.id),
+		mutationFn: () =>
+			productApi.toggleToBasket(userId, product.id, product.price),
 		onSuccess: () => {
 			client.invalidateQueries({ queryKey: ['products'] })
 		},
