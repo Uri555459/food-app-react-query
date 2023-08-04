@@ -15,12 +15,8 @@ interface Props {
 }
 
 export const BasketItem: FC<Props> = ({ product }) => {
-	const { user, isSuccess, handleClick, handlePlus, handleMinus } =
+	const { isSuccess, handleClick, handlePlus, handleMinus, productCount } =
 		useBasketItem(product)
-
-	const productCount = user?.basketProductsIds?.find(
-		item => product.id === item.id
-	)?.count
 
 	return (
 		<div className={styles.basketItem}>

@@ -17,6 +17,10 @@ export const useBasketItem = (product: IProduct) => {
 		queryFn: () => userApi.getUser(userId),
 	})
 
+	const productCount = user?.basketProductsIds?.find(
+		item => product.id === item.id
+	)?.count
+
 	const handlePlus = () => {
 		plusMutate()
 	}
@@ -51,5 +55,5 @@ export const useBasketItem = (product: IProduct) => {
 		},
 	})
 
-	return { user, isSuccess, handleClick, handlePlus, handleMinus }
+	return { isSuccess, handleClick, handlePlus, handleMinus, productCount }
 }

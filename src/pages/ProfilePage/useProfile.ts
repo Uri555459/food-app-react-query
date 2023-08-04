@@ -1,15 +1,17 @@
 import { ChangeEvent, useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
+import { useQuery } from '@tanstack/react-query'
 import { toast } from 'react-toastify'
 
 import { userApi } from '../../api/user/user.api'
-
 import { MESSAGES } from '../../constants/messages.constants'
+import { getLocalStorage } from '../../utils/localStorage'
 
 export const useProfile = () => {
 	const [newFullName, setNewFullName] = useState<string>('')
 	const [newEmail, setNewEmail] = useState<string>('')
 	const [newAddress, setNewAddress] = useState<string>('')
+	const userId = Number(getLocalStorage('userId'))
 
 	const {
 		register,
@@ -22,7 +24,7 @@ export const useProfile = () => {
 			return toast.error(MESSAGES.profileErrorUpdated)
 		}
 
-		userApi.updateUser(1, data)
+		await userApi.updateUser(userId, data)
 		toast.success(MESSAGES.profileSuccessUpdated)
 		setNewFullName('')
 		setNewEmail('')
@@ -49,5 +51,10 @@ export const useProfile = () => {
 		}
 	}
 
-	return { register, handleSubmit, errors, changeHandler, onSubmit }
+	const { data: user } = useQuery({
+		queryKey: ['user'],
+		queryFn: () => userApi.getUser(userId),
+	})
+
+	return { register, handleSubmit, errors, changeHandler, onSubmit, user }
 }

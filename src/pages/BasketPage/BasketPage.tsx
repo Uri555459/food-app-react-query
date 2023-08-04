@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { useQuery } from '@tanstack/react-query'
 
 import {
 	BasketItem,
@@ -8,18 +7,15 @@ import {
 	Typography,
 } from '../../components'
 
-import { productApi } from '../../api/product/product.api'
 import { useBasketPage } from './useBasketPage'
+import { useTotalPrice } from '../../hooks/useTotalPrice'
 
 import styles from './BasketPage.module.scss'
+import { calculatePercentage } from '../../utils/calculatePercentage'
 
 const BasketPage: FC = () => {
 	const { products, isLoading, isSuccess } = useBasketPage()
-
-	const { data: totalPrice } = useQuery({
-		queryKey: ['basket', '1', '2'],
-		queryFn: () => productApi.getTotalPriceProducts(),
-	})
+	const { totalPrice } = useTotalPrice()
 
 	if (isLoading) return <Spinner />
 
@@ -57,7 +53,11 @@ const BasketPage: FC = () => {
 										Vat 5%
 									</Typography>
 									<Typography tag='span' size='md'>
-										354
+										$
+										{totalPrice &&
+											Math.abs(
+												totalPrice - calculatePercentage(totalPrice, 5)
+											).toFixed(2)}
 									</Typography>
 								</div>
 								<div>
@@ -65,7 +65,7 @@ const BasketPage: FC = () => {
 										Sub Total
 									</Typography>
 									<Typography tag='span' size='lg'>
-										$354
+										${calculatePercentage(Number(totalPrice), 5)}
 									</Typography>
 								</div>
 							</div>

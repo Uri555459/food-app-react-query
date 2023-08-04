@@ -3,12 +3,21 @@
     {
       "email": "test@test.ru",
       "password": "$2a$10$eMoLijgGl9zdrdooEt4UkOeU757AjxIpKApWjWRYwub5qMdq5iOrq",
-      "fullName": "test@test.ru",
-      "address": "",
-      "basketProductsIds": [],
-      "favoriteProductIds": [
-        3
+      "fullName": "Uri ",
+      "address": "dfsdafsa",
+      "basketProductsIds": [
+        {
+          "id": 1,
+          "count": 40,
+          "price": 10
+        },
+        {
+          "id": 3,
+          "count": 15,
+          "price": 9
+        }
       ],
+      "favoriteProductIds": [],
       "id": 1
     },
     {

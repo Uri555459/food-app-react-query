@@ -7,7 +7,7 @@ import { MESSAGES } from '../../constants/messages.constants'
 import { useProfile } from './useProfile'
 
 const ProfilePage: FC = () => {
-	const { register, handleSubmit, errors, changeHandler, onSubmit } =
+	const { register, handleSubmit, errors, changeHandler, onSubmit, user } =
 		useProfile()
 
 	return (
@@ -17,7 +17,7 @@ const ProfilePage: FC = () => {
 					<img src='/images/avatar.png' alt='' />
 				</div>
 				<Typography tag='h1' size='xl' className={styles.title}>
-					Full Name
+					{user?.fullName}
 				</Typography>
 
 				<form onSubmit={handleSubmit(onSubmit)}>
@@ -30,12 +30,12 @@ const ProfilePage: FC = () => {
 							name='fullName'
 							placeholder='Full Name'
 							type='text'
-							defaultValue='Full Name'
+							defaultValue={user?.fullName}
 							onChange={changeHandler}
 						/>
-						{errors.email ? (
+						{errors.fullName ? (
 							<Typography tag='span' size='xs' className={styles.error}>
-								<>{errors.email.message}</>
+								<>{errors.fullName.message}</>
 							</Typography>
 						) : null}
 					</div>
@@ -46,7 +46,7 @@ const ProfilePage: FC = () => {
 							name='email'
 							placeholder='Email'
 							type='email'
-							defaultValue='Email'
+							defaultValue={user?.email}
 							onChange={changeHandler}
 						/>
 						{errors.email ? (
@@ -63,7 +63,7 @@ const ProfilePage: FC = () => {
 							placeholder='Delivery address'
 							onChange={changeHandler}
 							rows={5}
-							defaultValue='Delivery address'
+							defaultValue={user?.address}
 						></textarea>
 						{errors.address ? (
 							<Typography tag='span' size='xs' className={styles.error}>
